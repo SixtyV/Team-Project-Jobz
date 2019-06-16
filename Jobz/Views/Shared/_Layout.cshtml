@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>@ViewBag.Title - My ASP.NET Application</title>
+      @Styles.Render("~/Content/css")
+      @Scripts.Render("~/bundles/modernizr")
+  </head>
+
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                  <a class="nav-link">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+                  <a class="nav-link">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+                  <a class="nav-link">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+
+                  @if (Request.IsAuthenticated)
+                  {
+                      <a class="nav-link">@Html.ActionLink("Welcome, " + User.Identity.Name + "!", "Index", "User", new { area = "" }, new { @class = "navbar-brand" })</a>
+                      <a class="nav-link">@Html.ActionLink("Sign out!", "Logout", "User", new { area = "" }, new { @class = "navbar-brand" })</a>
+                  }
+
+              </div>
+          </div>
+      </nav>
+      <div class="container body-content">
+          @RenderBody()
+          <hr/>
+          <footer>
+              <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+          </footer>
+      </div>
+
+      @Scripts.Render("~/bundles/jquery")
+      @Scripts.Render("~/bundles/bootstrap")
+      @RenderSection("scripts", required: false)
+
+  </body>
+</html>
+

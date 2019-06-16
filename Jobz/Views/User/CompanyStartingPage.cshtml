@@ -1,0 +1,39 @@
+﻿@model Jobz.Models.CompanyProfileModel
+
+
+<html>
+<head>
+    <link href="@Url.Content("~/Content/MainMenu.css")" rel="stylesheet" type="text/css" />
+
+</head>
+
+    <body>
+
+        <div id="MainMenu">
+            <ul>
+                <li>
+                    <div class="c1">
+                        <span class="c2">Main Menu</span>
+                    </div>
+                </li>
+
+                @if (Model != null)
+                {
+                    <li><a href="@Url.Action("CompanyCreateJobPossition", "User")">Create Job Advert <br></a></li>
+                    <li><a href="@Url.Action("CompanyViewCreatedJobPossitions", "User")">Manage Job Adverts <br></a></li>
+                    <li><a href="@Url.Action("CompanyViewCVs", "User")">View Receiced CVs <br></a></li>
+                    <li><a href="@Url.Action("CompanyViewProfile", "User")">View Company Profile <br></a></li>
+                    <li><a href="@Url.Action("EditUserAccount", "User")">My Account Settings <br></a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("CompanyCreateProfile", "User")">Create Company Profile <br></a></li>
+                }
+
+            </ul>
+        </div>
+
+    </body>
+    </html>
+
+

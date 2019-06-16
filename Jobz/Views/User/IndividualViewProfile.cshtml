@@ -1,0 +1,28 @@
+﻿@model Jobz.Models.IndividualProfileModel
+
+<div>
+    <h4>IndividualProfileModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Profile", "IndividualEditProfile", "User") |
+    @Html.ActionLink("Back to Menu", "Index", "User")
+</p>

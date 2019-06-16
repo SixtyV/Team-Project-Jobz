@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron" style="background: url('/Images/cover.jpg') no-repeat; background-size:cover">
+    <div class="container">
+        <div class="col-md-6">
+            <h1 class="display-2">Jobz</h1>
+            <p class="lead jumbo-text purple-text ">An initiative valuable in combating unemployment.</p>
+            <p><a href="@Url.Action("LogIn", "User")" class="btn btn-primary">Log In &raquo;</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="trusted">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="p-3 text-center">Trusted by the best:</h4>
+            </div>
+            <div class="col-12 pb-4">
+                <img class="img-fluid" src="~/Images/companies.png" alt="Missing Image" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 pt-4 ">
+    <div class="row border-bottom pb-4 mb-4">
+        <div class="col-md-5">
+            <img class="img-fluid" src="~/Images/job-seekers.jpg" alt="Missing Image"/>
+        </div>
+        <div class="col-md-7">
+            <h2 class="purple-text pb-2">For Job Seekers</h2>
+            <p>
+                Create an account free and start searching for your dream job! Register your cv through our user friendly environment.
+                It will be available for companies immediately!
+            </p>
+            <p><a href="@Url.Action("CreateUserAccount", "User", new { Role = 0} )" class="btn btn-primary">Create Account &raquo;</a></p>
+
+        </div>
+    </div>
+
+    <div class="row mt-4 pt-4">
+        <div class="col-md-7">
+            <h2 class="purple-text pb-2">For Companies</h2>
+            <p>
+                If you are a company looking for hiring, you are in the right place! Find the appropriate candidate based on your needs!
+            </p>
+            <p><a href="@Url.Action("CreateUserAccount", "User", new { Role = 1} )" class="btn btn-primary">Create Account &raquo;</a></p>
+        </div>
+        <div class="col-md-5">
+            <img class="img-fluid" src="~/Images/company.jpg" alt="Missing Image"/>
+
+        </div>
+    </div>
+</div>

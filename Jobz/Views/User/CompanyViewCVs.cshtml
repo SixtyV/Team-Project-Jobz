@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Jobz.Models.ViewCVsModel>
+@{
+    ViewBag.Title = "CV List";
+}
+<h2>CV LIST</h2>
+
+@if (!ViewBag.ListIsEmpty)
+{
+   <input type="button" class="btn btn-primary" value="Download all CVs as ZIP" onclick="location.href='@Url.Action("CompanyDownloadCVZip", "User")'" />
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Openings)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Openings)
+            </td>
+            <td>
+                @if (item.Active)
+                {<text>Yes</text>}
+            else
+            {<text>No</text>}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <input type="button" class="btn btn-primary" value="Download CV" onclick="location.href='@Url.Action("DownloadCV", "User", new { item.JobId, item.IndividualId })'" />
+            </td>
+        </tr>
+    }
+</table>
+
+@if (ViewBag.ListIsEmpty)
+{
+    <p>List is empty.</p>
+}

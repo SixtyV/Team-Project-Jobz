@@ -1,0 +1,33 @@
+﻿@model Jobz.Models.IndividualProfileModel
+
+<html>
+<head>
+    <link href="@Url.Content("~/Content/MainMenu.css")" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id="MainMenu">
+        <ul>
+            <li>
+                <div class="c1">
+                    <span class="c2">Main Menu</span>
+                </div>
+            </li>
+
+            @if (Model != null)
+            {
+                <li><a href="@Url.Action("IndividualViewAllJobPossitions", "User")">View Job Adverts <br></a></li>
+                <li><a href="@Url.Action("IndividualViewProfile", "User")">View Profile <br></a></li>
+                <li><a href="@Url.Action("EditUserAccount", "User")">My Account Settings <br></a></li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("IndividualCreateProfile", "User")">Create Profile <br></a></li>
+            }
+
+        </ul>
+    </div>
+</body>
+</html>
+

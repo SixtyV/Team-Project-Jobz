@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Jobz.Models.UserModel>
+
+<h3>Individuals List</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RightsApproved)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @if (item.RightsApproved)
+            {<text>Yes</text>}
+            else
+            {<text>No</text>}
+        </td>
+        <td>
+            @Html.ActionLink("Individual Profile", "AdminGetIndividualProfile", new { id = item.Id }) |
+            @if (!item.RightsApproved)
+            {
+                @Html.ActionLink("Grand User Rights", "AdminChangeUserRights", 
+                new { id = item.Id, role = item.Role.ToString() })
+            }
+            else
+            {
+                @Html.ActionLink("Remove User Rights", "AdminChangeUserRights", 
+                new { id = item.Id, role = item.Role.ToString() })
+            }
+        </td>
+    </tr>
+}
+
+</table>

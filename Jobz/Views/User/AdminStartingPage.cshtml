@@ -1,0 +1,24 @@
+﻿<html>
+<head>
+    <link href="@Url.Content("~/Content/MainMenu.css")" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id="MainMenu">
+        <ul>
+            <li>
+                <div class="c1">
+                    <span class="c2">Main Menu</span>
+                </div>
+            </li>
+          
+            <li><a href="@Url.Action("AdminManageCompanies", "User")">Manage Companies <br></a></li>
+            <li><a href="@Url.Action("AdminManageIndividuals", "User")">Manage Individuals <br></a></li>
+            <li><a href="@Url.Action("AdminViewAllJobPossitions", "User")">View Job Adverts <br></a></li>            
+        </ul>
+    </div>
+</body>
+</html>
+
+
